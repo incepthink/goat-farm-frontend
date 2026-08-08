@@ -69,6 +69,12 @@ const config: Config = {
         // Editorial scale. Display sizes are fluid; body sizes are fixed.
         'display-xl': ['clamp(3rem, 9vw, 8.5rem)', { lineHeight: '0.94', letterSpacing: '-0.03em' }],
         'display-lg': ['clamp(2.5rem, 6.2vw, 5.5rem)', { lineHeight: '0.98', letterSpacing: '-0.025em' }],
+        /**
+         * Hero headline only. A step below display-lg because the hero sentence runs to
+         * three lines over the single best photograph in the library — at display-lg the
+         * type covers the boy and the kid it is there to be read against.
+         */
+        'display-hero': ['clamp(2.75rem, 7.2vw, 6.25rem)', { lineHeight: '0.98', letterSpacing: '-0.028em' }],
         'display-md': ['clamp(2rem, 4.4vw, 3.75rem)', { lineHeight: '1.04', letterSpacing: '-0.02em' }],
         'display-sm': ['clamp(1.625rem, 3vw, 2.5rem)', { lineHeight: '1.12', letterSpacing: '-0.015em' }],
         // Statistics — always tabular, always large

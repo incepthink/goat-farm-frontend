@@ -5,7 +5,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!images/|favicon|og/|robots.txt|sitemap.xml|assets/).*)",
+      "source": "/((?!images/|favicon|apple-touch-icon|og/|robots.txt|sitemap.xml|assets/).*)",
       "destination": "/index.html"
     }
   ],

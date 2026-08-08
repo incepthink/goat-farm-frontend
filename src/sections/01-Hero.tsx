@@ -59,7 +59,7 @@ export function Hero() {
         <MaskReveal
           as="h1"
           text={HERO.headline}
-          className="mt-6 max-w-[16ch] text-display-lg font-semibold"
+          className="mt-6 max-w-[16ch] text-display-hero font-semibold"
           delay={0.15}
         />
 
