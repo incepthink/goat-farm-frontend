@@ -1,0 +1,121 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/manrope';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fraunces axes — set once, used everywhere. SOFT/WONK kept low: editorial, not playful. */
+    --fraunces-display: 'SOFT' 0, 'WONK' 0, 'opsz' 144;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Lenis drives scrolling; native smooth-scroll would fight it. */
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-bone text-earth font-sans text-body antialiased;
+    font-variant-numeric: tabular-nums;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    font-variation-settings: var(--fraunces-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Every statistic on the site is tabular. Non-negotiable — figures must not jitter
+     while a count-up animation runs. */
+  .tnum {
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum' 1, 'lnum' 1;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bone;
+  }
+
+  ::selection {
+    @apply bg-accent text-bone;
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-gutter;
+  }
+
+  /* The small uppercase label above every section heading. */
+  .eyebrow {
+    @apply font-sans text-eyebrow font-semibold uppercase text-earth-faint;
+  }
+
+  /* Flat framed image card. No shadows, no gradients — a hairline and a tint. */
+  .frame {
+    @apply relative overflow-hidden rounded-card border border-bone-edge bg-bone-deep;
+  }
+
+  .frame-invert {
+    @apply relative overflow-hidden rounded-card border border-bone/15 bg-earth-deep;
+  }
+
+  .hairline {
+    @apply border-t border-bone-edge;
+  }
+}
+
+@layer utilities {
+  /* Mask-based reveal used by the hero headline and section headings. */
+  .mask-line {
+    display: block;
+    overflow: hidden;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * Reduced motion — non-negotiable (CLAUDE.md §7).
+ * Everything animated must arrive at its final state instantly, not merely animate faster.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
