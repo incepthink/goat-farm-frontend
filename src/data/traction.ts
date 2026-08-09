@@ -17,8 +17,15 @@ export const TRACTION_INTRO = {
 }
 
 export const TRACTION: Stat[] = [
-  { value: 4000, label: 'goats tagged', note: 'From an average of 110 families', source: 'A p10 L5' },
-  { value: 110, label: 'families', source: 'A p10 L5' },
+  { value: 4000, label: 'goats tagged', source: 'A p10 L5' },
+  /**
+   * The source reads "4,000 Goats tagged, from an average of 110 families" (A p10 L5).
+   * Both halves of that sentence were previously on the page — the count here and the
+   * same figure again as a note on the goats tile — so 110 appeared twice and was
+   * explained neither time. The note now sits on this tile only, and says what the
+   * households are: the owners of the 4,000 above.
+   */
+  { value: 110, label: 'shepherd families', note: 'The households those 4,000 goats belong to', source: 'A p10 L5' },
   { value: 17, label: 'villages', note: 'Across 2 districts, and growing', source: 'A p10 L6–7' },
   { value: 500, label: 'people impacted', source: 'A p10 L6–7' },
   { value: 25, label: 'direct jobs created', source: 'A p10 L11' },
@@ -79,7 +86,8 @@ export const GAINS: (Sourced & {
 ]
 
 export const TRAINING: Stat[] = [
-  { value: 10, label: 'Livestock Supervisors trained', note: '6 of them managing 110 flocks', source: 'A p10 L21–22' },
+  /** "the 110 flocks", definite article: these are the same 110 households as TRACTION above. */
+  { value: 10, label: 'Livestock Supervisors trained', note: 'Six of them manage the 110 flocks between them', source: 'A p10 L21–22' },
   { value: 90, label: 'women flock owners at health camps', source: 'A p10 L15–20' },
 ]
 
